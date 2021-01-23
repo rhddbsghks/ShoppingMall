@@ -17,6 +17,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   background-color: var(--color-black);
   display: flex;
