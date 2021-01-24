@@ -1,6 +1,9 @@
-# ShoppingMall
+# ShoppingMall  
+by Dream Coding (Ellie)  
 
-
+  
+    
+     
 ## 1. 첫 화면
 ![main page](https://user-images.githubusercontent.com/49037411/105634521-c0a95300-5ea1-11eb-88e0-d008de8cc845.png)
 
