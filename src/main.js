@@ -4,24 +4,39 @@ function loadItems() {
     .then((result) => result.items);
 }
 
-function displayItems(parm) {
-  console.log(parm);
-
+function displayItems(items) {
   let arr;
   let inner = document.querySelector(".items");
 
-  arr = parm.map((data) => {
-    return `<li class="item">
+  arr = items
+    .map((data) => {
+      return `<li class="item">
     <img src="${data.img}" alt="${data.type}" class="item_thumb" />
     <span class="item_description">${data.sex}, ${data.size}</span>
   </li>`;
-  });
+    })
+    .join("");
 
-  arr = arr.join("");
   inner.innerHTML = arr;
+}
+
+function onBtnClik(event, items) {
+  const dataset = event.target.dataset;
+  if (dataset.key == null || dataset.value == null) return;
+
+  displayItems(items.filter((item) => item[dataset.key] == dataset.value));
+  console.log(items.filter((item) => item[dataset.key] == dataset.value));
+}
+
+function setEventListener(items) {
+  const logo = document.querySelector("#logo");
+  const buttons = document.querySelector(".buttons");
+
+  logo.addEventListener("click", () => displayItems(items));
+  buttons.addEventListener("click", (event) => onBtnClik(event, items));
 }
 
 loadItems().then((items) => {
   displayItems(items);
-  // setEventListener(items);
+  setEventListener(items);
 });
